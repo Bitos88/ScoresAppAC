@@ -5,4 +5,17 @@
 //  Created by Alberto Alegre Bravo on 4/6/22.
 //
 
-import Foundation
+import UIKit
+
+extension UIAlertController {
+    static func showAlert(title:String, message:String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        let accion = UIAlertAction(title: "Aceptar", style: .default) { _ in print("Alert mostrado")
+        }
+        
+        alert.addAction(accion)
+        
+        return alert
+    }
+}

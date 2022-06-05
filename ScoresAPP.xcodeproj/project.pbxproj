@@ -9,21 +9,37 @@
 /* Begin PBXBuildFile section */
 		1A50F65A28453DFE00E09D1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F65928453DFE00E09D1A /* AppDelegate.swift */; };
 		1A50F65C28453DFE00E09D1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F65B28453DFE00E09D1A /* SceneDelegate.swift */; };
-		1A50F65E28453DFE00E09D1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F65D28453DFE00E09D1A /* ViewController.swift */; };
-		1A50F66128453DFE00E09D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A50F65F28453DFE00E09D1A /* Main.storyboard */; };
 		1A50F66328453E0000E09D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A50F66228453E0000E09D1A /* Assets.xcassets */; };
 		1A50F66628453E0000E09D1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A50F66428453E0000E09D1A /* LaunchScreen.storyboard */; };
+		1A50F66E28454A3E00E09D1A /* scoresdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A50F66D28454A3E00E09D1A /* scoresdata.json */; };
+		1A50F6712846873A00E09D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A50F6702846873A00E09D1A /* Main.storyboard */; };
+		1A50F6732846879600E09D1A /* ScoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F6722846879600E09D1A /* ScoresTableViewController.swift */; };
+		1A50F67528468C7400E09D1A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F67428468C7400E09D1A /* Model.swift */; };
+		1A50F67728468D3D00E09D1A /* ModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F67628468D3D00E09D1A /* ModelLogic.swift */; };
+		1A50F67928468E7300E09D1A /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F67828468E7300E09D1A /* JSONLoader.swift */; };
+		1A50F67B2847DE8A00E09D1A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F67A2847DE8A00E09D1A /* DetailViewController.swift */; };
+		1AFD07E2284BDDD900A83D09 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD07E1284BDDD900A83D09 /* Extension.swift */; };
+		1AFD07E4284C9F8C00A83D09 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD07E3284C9F8C00A83D09 /* CustomPickerView.swift */; };
+		1AFD07F0284D1F7900A83D09 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD07EF284D1F7900A83D09 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A50F65628453DFE00E09D1A /* ScoresAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoresAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A50F65928453DFE00E09D1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A50F65B28453DFE00E09D1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A50F65D28453DFE00E09D1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1A50F66028453DFE00E09D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A50F66228453E0000E09D1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A50F66528453E0000E09D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A50F66728453E0000E09D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A50F66D28454A3E00E09D1A /* scoresdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scoresdata.json; sourceTree = "<group>"; };
+		1A50F6702846873A00E09D1A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1A50F6722846879600E09D1A /* ScoresTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresTableViewController.swift; sourceTree = "<group>"; };
+		1A50F67428468C7400E09D1A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1A50F67628468D3D00E09D1A /* ModelLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLogic.swift; sourceTree = "<group>"; };
+		1A50F67828468E7300E09D1A /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		1A50F67A2847DE8A00E09D1A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1AFD07E1284BDDD900A83D09 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		1AFD07E3284C9F8C00A83D09 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		1AFD07EF284D1F7900A83D09 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,31 @@
 		1A50F65828453DFE00E09D1A /* ScoresAPP */ = {
 			isa = PBXGroup;
 			children = (
+				1A50F6702846873A00E09D1A /* Main.storyboard */,
+				1A50F6722846879600E09D1A /* ScoresTableViewController.swift */,
+				1AFD07E1284BDDD900A83D09 /* Extension.swift */,
+				1A50F67A2847DE8A00E09D1A /* DetailViewController.swift */,
+				1AFD07E3284C9F8C00A83D09 /* CustomPickerView.swift */,
+				1AFD07EF284D1F7900A83D09 /* Utils.swift */,
+				1A50F67428468C7400E09D1A /* Model.swift */,
+				1A50F67628468D3D00E09D1A /* ModelLogic.swift */,
+				1A50F67828468E7300E09D1A /* JSONLoader.swift */,
+				1A50F66228453E0000E09D1A /* Assets.xcassets */,
+				1A50F66D28454A3E00E09D1A /* scoresdata.json */,
+				1A50F66F28454AF700E09D1A /* System */,
+			);
+			path = ScoresAPP;
+			sourceTree = "<group>";
+		};
+		1A50F66F28454AF700E09D1A /* System */ = {
+			isa = PBXGroup;
+			children = (
 				1A50F65928453DFE00E09D1A /* AppDelegate.swift */,
 				1A50F65B28453DFE00E09D1A /* SceneDelegate.swift */,
-				1A50F65D28453DFE00E09D1A /* ViewController.swift */,
-				1A50F65F28453DFE00E09D1A /* Main.storyboard */,
-				1A50F66228453E0000E09D1A /* Assets.xcassets */,
 				1A50F66428453E0000E09D1A /* LaunchScreen.storyboard */,
 				1A50F66728453E0000E09D1A /* Info.plist */,
 			);
-			path = ScoresAPP;
+			name = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +157,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A50F66E28454A3E00E09D1A /* scoresdata.json in Resources */,
 				1A50F66628453E0000E09D1A /* LaunchScreen.storyboard in Resources */,
 				1A50F66328453E0000E09D1A /* Assets.xcassets in Resources */,
-				1A50F66128453DFE00E09D1A /* Main.storyboard in Resources */,
+				1A50F6712846873A00E09D1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +171,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A50F65E28453DFE00E09D1A /* ViewController.swift in Sources */,
 				1A50F65A28453DFE00E09D1A /* AppDelegate.swift in Sources */,
 				1A50F65C28453DFE00E09D1A /* SceneDelegate.swift in Sources */,
+				1A50F67928468E7300E09D1A /* JSONLoader.swift in Sources */,
+				1A50F6732846879600E09D1A /* ScoresTableViewController.swift in Sources */,
+				1A50F67728468D3D00E09D1A /* ModelLogic.swift in Sources */,
+				1AFD07F0284D1F7900A83D09 /* Utils.swift in Sources */,
+				1A50F67528468C7400E09D1A /* Model.swift in Sources */,
+				1A50F67B2847DE8A00E09D1A /* DetailViewController.swift in Sources */,
+				1AFD07E2284BDDD900A83D09 /* Extension.swift in Sources */,
+				1AFD07E4284C9F8C00A83D09 /* CustomPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1A50F65F28453DFE00E09D1A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A50F66028453DFE00E09D1A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1A50F66428453E0000E09D1A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,11 +322,14 @@
 				DEVELOPMENT_TEAM = 5X587S7WGV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScoresAPP/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyScoresApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +339,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,11 +353,14 @@
 				DEVELOPMENT_TEAM = 5X587S7WGV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScoresAPP/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyScoresApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +370,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -7,15 +7,23 @@
 
 import UIKit
 
+protocol CustomPickerViewDelegate {
+    func didSelectRow(pickerView: UIPickerView, didSelectValue value: String)
+}
+
 class CustomPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let data:[String]
     
-    init(data:[String]) {
+    init(data:[String], initialValue: String) {
         self.data = data
         super.init(frame: .zero)
         delegate = self
         dataSource = self
+        if let index = data.firstIndex(where: {$0 == initialValue}) {
+            selectRow(index, inComponent: 0, animated: false)
+        }
+        
         
     }
     
@@ -23,6 +31,8 @@ class CustomPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSour
         self.data = []
         super.init(coder: coder)
     }
+    
+    var delegateCustom: CustomPickerViewDelegate?
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -37,6 +47,6 @@ class CustomPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
+        delegateCustom?.didSelectRow(pickerView: pickerView, didSelectValue: data[row])
     }
 }
