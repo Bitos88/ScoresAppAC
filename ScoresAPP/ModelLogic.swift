@@ -26,7 +26,13 @@ final class ModelLogic {
     
     static let shared = ModelLogic()
     
-    var scores:[ScoreModel]
+    var scores:[ScoreModel] {
+        didSet {
+            Task {
+                await saveScores()
+            }
+        }
+    }
     
     var composers:[String] {
         Array(Set(scores.map(\.composer)))
@@ -51,5 +57,19 @@ final class ModelLogic {
             return IndexPath(row: index, section: 0)
         }
         return nil
+    }
+    
+    func saveScores() async {
+        do {
+            try await JSONSaver(file: "scoresdata", json: scores)
+        } catch JSONErrors.noFile {
+            print("fichero no existe")
+        } catch JSONErrors.codableError(let error) {
+            print("Error en CODABLE con el JSON \(error)")
+        } catch JSONErrors.write(let error) {
+            print("Error de escritura de datos \(error.localizedDescription)")
+        } catch {
+            print("Error indeterminado \(error)")
+        }
     }
 }
