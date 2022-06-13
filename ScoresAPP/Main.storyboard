@@ -3,26 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="y3v-p8-7oD">
-            <objects>
-                <viewController id="y73-Qa-52t" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v7R-75-NY9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="evv-0R-syd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wiO-ik-S7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1246" y="-478"/>
-        </scene>
         <!--Scores-->
         <scene sceneID="mWq-s5-izd">
             <objects>
@@ -73,7 +57,7 @@
                     <navigationItem key="navigationItem" title="Scores" largeTitleDisplayMode="always" id="YaM-7B-kRE">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="2ay-Vv-MIa">
                             <connections>
-                                <segue destination="y73-Qa-52t" kind="showDetail" identifier="add" id="MSj-fL-sjm"/>
+                                <segue destination="xao-cN-Ddq" kind="showDetail" id="rvW-k7-TCG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,6 +65,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXi-JV-pw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="134.59821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U9q-tc-ha2">
+            <objects>
+                <navigationController id="xao-cN-Ddq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KtG-kF-Fup">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xwd-B7-Ei7" kind="relationship" relationship="rootViewController" id="n2j-U4-kPk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ux-Br-Lb3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="-548"/>
         </scene>
         <!--Edit Scores-->
         <scene sceneID="fzr-ji-nXa">
@@ -262,6 +262,7 @@
                         <outlet property="composerTextField" destination="57x-Ot-khM" id="DWq-HO-M0b"/>
                         <outlet property="coverImage" destination="K48-4L-tpx" id="35f-NK-e6k"/>
                         <outlet property="lengthTextField" destination="qWT-fP-ssq" id="QRT-NJ-TCA"/>
+                        <outlet property="shareButton" destination="8Cr-j3-HzY" id="Oph-bl-xsn"/>
                         <outlet property="titleTextField" destination="M3p-NM-q5h" id="Ppx-Yc-UTo"/>
                         <outlet property="yearTextField" destination="kPw-WB-bwY" id="gsd-Je-wDO"/>
                         <segue destination="6RH-fr-jII" kind="unwind" identifier="back" unwindAction="backScoresWithSegue:" id="Ozd-IK-ayb"/>
@@ -270,7 +271,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubm-da-125" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="6RH-fr-jII" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1692.753623188406" y="180.80357142857142"/>
+            <point key="canvasLocation" x="1951" y="242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x8e-4I-72y">
@@ -291,6 +292,9 @@
             <point key="canvasLocation" x="37.681159420289859" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="n2j-U4-kPk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Alias" width="100" height="100"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

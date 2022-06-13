@@ -59,6 +59,20 @@ final class ModelLogic {
         return nil
     }
     
+    func addNewScore(title: String, composer: String, year:Int, length: Double) {
+        //MARK: .sort que devuelve el valor más grande
+        guard let newID = scores.max(by: {$0.id < $1.id}) else { return }
+        
+        scores.append(ScoreModel(id: newID.id + 1,
+                                 title: title,
+                                 composer: composer,
+                                 year: year,
+                                 length: length,
+                                 cover: "coverPlaceholder_",
+                                 tracks: []))
+        
+    }
+    
     func saveScores() async {
         do {
             try await JSONSaver(file: "scoresdata", json: scores)
@@ -71,5 +85,6 @@ final class ModelLogic {
         } catch {
             print("Error indeterminado \(error)")
         }
+        NotificationCenter.default.post(name: .detailAlert, object: "Correct Save Data")
     }
 }

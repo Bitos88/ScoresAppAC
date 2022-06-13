@@ -20,6 +20,12 @@ final class ScoresTableViewController: UITableViewController {
          self.clearsSelectionOnViewWillAppear = false
         //MARK: PERMITE AÑADIR BOTÓN DE EDICIÓN
          self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        NotificationCenter.default.addObserver(forName: .reloadNewData, object: nil, queue: .main) { [self] _ in
+            tableView.reloadData()
+            tableView.scrollToRow(at: IndexPath(row: modelLogic.scores.count - 1, section: 0), at: .bottom, animated: false)
+            
+        }
     }
 
     // MARK: - Table view data source
@@ -118,4 +124,9 @@ final class ScoresTableViewController: UITableViewController {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .reloadNewData, object: nil)
+    }
 }
+
