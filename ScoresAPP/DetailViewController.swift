@@ -23,6 +23,12 @@ final class DetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        configureNotifications()
+        
+        tableView.allowsSelection = false
+    }
+    
+    fileprivate func configureNotifications() {
         NotificationCenter.default.addObserver(forName: .detailAlert,
                                                object: nil,
                                                queue: .main) { notification in
@@ -54,6 +60,7 @@ final class DetailViewController: UITableViewController, UITextFieldDelegate {
             navigationItem.leftBarButtonItem = closeButton
             shareButton.isEnabled = false
             shareButton.tintColor = .clear
+            coverImage.image = UIImage(named: "coverPlaceholder_")
         }
         composerTextField.delegate = self
     }

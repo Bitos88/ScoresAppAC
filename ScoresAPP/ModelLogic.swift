@@ -9,6 +9,11 @@ import Foundation
 
 final class ModelLogic {
     
+    enum SortType {
+        case descendent, ascendent, none
+    }
+    
+    
     static func loadScores() -> [ScoreModel] {
         do {
             return try JSONLoader(file: "scoresdata", type: [ScoreModel].self)
@@ -26,11 +31,24 @@ final class ModelLogic {
     
     static let shared = ModelLogic()
     
+    var sortType: SortType = .none
+    
     var scores:[ScoreModel] {
         didSet {
             Task {
                 await saveScores()
             }
+        }
+    }
+    
+    var sortScores: [ScoreModel] {
+        switch sortType {
+        case .descendent:
+            return scores.sorted(by: { $0.title < $1.title })
+        case .ascendent:
+            return scores.sorted(by: { $0.title > $1.title })
+        case .none:
+            return scores.sorted(by: { $0.id > $1.id })
         }
     }
     
@@ -68,7 +86,7 @@ final class ModelLogic {
                                  composer: composer,
                                  year: year,
                                  length: length,
-                                 cover: "coverPlaceholder_",
+                                 cover: "coverPlaceholder",
                                  tracks: []))
         
     }

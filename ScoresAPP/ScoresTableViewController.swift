@@ -12,9 +12,16 @@ import UIKit
 final class ScoresTableViewController: UITableViewController {
     
     let modelLogic = ModelLogic.shared
+    
+    var myView: UIView!
+    var showView = false
 
+    @IBOutlet weak var sortButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureSortButton()
 
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
@@ -29,6 +36,51 @@ final class ScoresTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    @IBAction func push(_ sender: UIBarButtonItem) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//        let window = storyboard.instantiateViewController(withIdentifier: "emergente")
+
+//        present(window, animated: true, completion: nil)
+        
+        if !showView {
+            showView.toggle()
+            
+            guard let xib = Bundle.main.loadNibNamed("MyView", owner: self, options: nil),
+                  let miXib = xib.first as? UIView else { return }
+            
+            myView = miXib
+            //To center the element on screen
+            myView.frame.origin = CGPoint(x: (UIScreen.main.bounds.width / 2) - (myView.frame.width / 2), y: (UIScreen.main.bounds.height / 2) - (myView.frame.height / 2))
+            
+            navigationController?.view.addSubview(myView)
+        } else {
+            showView.toggle()
+            myView.removeFromSuperview()
+        }
+        
+        
+        
+        
+    }
+    
+    func configureSortButton() {
+        let actionOne = UIAction(title: "Ascendent", image: UIImage(systemName: "arrow.up")) {_ in
+            self.modelLogic.sortType = .ascendent
+            self.tableView.reloadData()
+        }
+        
+        let actionTwo = UIAction(title: "Descendent", image: UIImage(systemName: "arrow.down")) {_ in
+            self.modelLogic.sortType = .descendent
+            self.tableView.reloadData()
+        }
+        
+        let actionThree = UIAction(title: "None", image: UIImage(systemName: "arrow.right")) {_ in
+            self.modelLogic.sortType = .none
+            self.tableView.reloadData()
+        }
+        
+        sortButton.menu = UIMenu(title: "Sort Options", children: [actionOne, actionTwo, actionThree])
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -43,7 +95,7 @@ final class ScoresTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "zelda", for: indexPath)
 
-        let score = modelLogic.scores[indexPath.row]
+        let score = modelLogic.sortScores[indexPath.row]
         
         //MARK: Forma antigua deprecada
 //        cell.textLabel?.text = "\(score.title)"
@@ -112,7 +164,7 @@ final class ScoresTableViewController: UITableViewController {
            let destination = segue.destination as? DetailViewController,
            let cell = sender as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
-            destination.score = modelLogic.scores[indexPath.row]
+            destination.score = modelLogic.sortScores[indexPath.row]
         }
     }
     
@@ -123,6 +175,28 @@ final class ScoresTableViewController: UITableViewController {
             let indexPath = modelLogic.updateScore(score: score) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+    }
+    @IBAction func sortButtonTapped(_ sender: UIBarButtonItem) {
+        
+        //MARK: OLD SCHOOL PATH (APPLE DON'T WANT THIS METHOD)
+        let alert = UIAlertController(title: "Choose an option", message: "Choos how to sort Scores", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Ascendent", style: .default) {_ in
+            self.modelLogic.sortType = .ascendent
+            self.tableView.reloadData()
+        })
+        alert.addAction(UIAlertAction(title: "Descendent", style: .default) {_ in
+            self.modelLogic.sortType = .descendent
+            self.tableView.reloadData()
+
+        })
+        alert.addAction(UIAlertAction(title: "Nothing", style: .cancel) {_ in
+            self.modelLogic.sortType = .none
+            self.tableView.reloadData()
+
+        })
+        
+        present(alert, animated: true)
     }
     
     deinit {
