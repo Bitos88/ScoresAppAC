@@ -71,7 +71,7 @@ final class ScoresTableViewController: UITableViewController {
             let offset = myView.layer.frame.origin.y
             myView.layer.frame.origin = CGPoint(x: self.myView.layer.frame.origin.x, y: offset + 400)
             
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) {
                 self.myView.layer.opacity = 1.0
                 self.myView.layer.frame.origin = CGPoint(x: self.myView.layer.frame.origin.x, y: offset)
             }
@@ -81,7 +81,7 @@ final class ScoresTableViewController: UITableViewController {
             let offset = myView.layer.frame.origin.y
 
             
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) {
                 self.myView.layer.opacity = 0.0
                 self.myView.layer.frame.origin = CGPoint(x: self.myView.layer.frame.origin.x, y: offset - 400)
                 
@@ -181,6 +181,22 @@ final class ScoresTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "Favorite") { action, view, handler in
+            // set favorite when swipe
+            self.modelLogic.toggleFavorites(id: indexPath.row)
+            handler(true)
+        }
+        if modelLogic.isFavorite(id: indexPath.row) {
+            action.image = UIImage(systemName: "star")
+            action.backgroundColor = .red
+        } else {
+            action.image = UIImage(systemName: "star.fill")
+            action.backgroundColor = .yellow
+        }
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
 

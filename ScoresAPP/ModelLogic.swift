@@ -41,6 +41,12 @@ final class ModelLogic {
         }
     }
     
+    var favorites:[Int] {
+        didSet {
+            UserDefaults.standard.set(favorites, forKey: "FAVORITES")
+        }
+    }
+    
     var sortScores: [ScoreModel] {
         switch sortType {
         case .descendent:
@@ -58,6 +64,7 @@ final class ModelLogic {
     
     init() {
         self.scores = ModelLogic.loadScores()
+        self.favorites = UserDefaults.standard.array(forKey: "FAVORITES") as? [Int] ?? []
     }
     
     func deleteRow(indexPath:IndexPath) {
@@ -104,5 +111,32 @@ final class ModelLogic {
             print("Error indeterminado \(error)")
         }
         NotificationCenter.default.post(name: .detailAlert, object: "Correct Save Data")
+    }
+    
+    func toggleFavorites(id:Int) {
+        let list = sortScores[id]
+        
+        guard let realID = scores.firstIndex(where: {$0.id == list.id}) else {
+            return
+        }
+        
+        if favorites.contains(realID) {
+            favorites.removeAll() {
+                $0 == id
+            }
+        } else {
+            favorites.append(realID)
+        }
+    }
+    
+    func isFavorite(id:Int) -> Bool {
+        let list = sortScores[id]
+        
+        guard let realID = scores.firstIndex(where: {$0.id == list.id}) else {
+            return false
+        }
+        
+        
+        return favorites.contains(realID)
     }
 }
