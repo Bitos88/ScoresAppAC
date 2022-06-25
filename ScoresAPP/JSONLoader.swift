@@ -75,7 +75,7 @@ func JSONLoaderFromLocal<Tipo:Codable>(file:String, type:Tipo.Type) throws -> Ti
         throw JSONErrors.noFile
     }
     //INICIALIZAMOS DATA
-    let fullURL = doc.appendingPathComponent("\(file)").appendingPathExtension("json")
+    _ = doc.appendingPathComponent("\(file)").appendingPathExtension("json")
 
     var data:Data
     

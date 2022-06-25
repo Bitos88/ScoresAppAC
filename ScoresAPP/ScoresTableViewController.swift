@@ -46,16 +46,48 @@ final class ScoresTableViewController: UITableViewController {
             showView.toggle()
             
             guard let xib = Bundle.main.loadNibNamed("MyView", owner: self, options: nil),
-                  let miXib = xib.first as? UIView else { return }
+                  let miXib = xib.first as? UIView,
+                  let navigationC = navigationController else { return }
             
             myView = miXib
-            //To center the element on screen
-            myView.frame.origin = CGPoint(x: (UIScreen.main.bounds.width / 2) - (myView.frame.width / 2), y: (UIScreen.main.bounds.height / 2) - (myView.frame.height / 2))
+            myView.backgroundColor = .gray
+            myView.layer.cornerRadius = 10
+            myView.translatesAutoresizingMaskIntoConstraints = false
+            myView.layer.opacity = 0.0
             
-            navigationController?.view.addSubview(myView)
+            //To center the element on screen
+//            myView.frame.origin = CGPoint(x: (UIScreen.main.bounds.width / 2) - (myView.frame.width / 2), y: (UIScreen.main.bounds.height / 2) - (myView.frame.height / 2))
+            navigationC.view.addSubview(myView)
+            
+            
+            NSLayoutConstraint.activate([
+                myView.centerXAnchor.constraint(equalTo: navigationC.view.centerXAnchor),
+                myView.centerYAnchor.constraint(equalTo: navigationC.view.centerYAnchor),
+                myView.widthAnchor.constraint(equalToConstant: 250),
+                myView.heightAnchor.constraint(equalToConstant: 250)
+                
+            ])
+            
+            let offset = myView.layer.frame.origin.y
+            myView.layer.frame.origin = CGPoint(x: self.myView.layer.frame.origin.x, y: offset + 400)
+            
+            UIView.animate(withDuration: 1) {
+                self.myView.layer.opacity = 1.0
+                self.myView.layer.frame.origin = CGPoint(x: self.myView.layer.frame.origin.x, y: offset)
+            }
+            
         } else {
             showView.toggle()
-            myView.removeFromSuperview()
+            let offset = myView.layer.frame.origin.y
+
+            
+            UIView.animate(withDuration: 1) {
+                self.myView.layer.opacity = 0.0
+                self.myView.layer.frame.origin = CGPoint(x: self.myView.layer.frame.origin.x, y: offset - 400)
+                
+            } completion: { state in
+                self.myView.removeFromSuperview()
+            }
         }
         
         
