@@ -20,6 +20,7 @@
 		1A50F67928468E7300E09D1A /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F67828468E7300E09D1A /* JSONLoader.swift */; };
 		1A50F67B2847DE8A00E09D1A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50F67A2847DE8A00E09D1A /* DetailViewController.swift */; };
 		1AD2694C28671B530094D865 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2694B28671B530094D865 /* FavoritesCollectionViewController.swift */; };
+		1AD2694E28685E560094D865 /* CoverItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2694D28685E560094D865 /* CoverItemViewCell.swift */; };
 		1AFD07E2284BDDD900A83D09 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD07E1284BDDD900A83D09 /* Extension.swift */; };
 		1AFD07E4284C9F8C00A83D09 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD07E3284C9F8C00A83D09 /* CustomPickerView.swift */; };
 		1AFD07F0284D1F7900A83D09 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD07EF284D1F7900A83D09 /* Utils.swift */; };
@@ -41,6 +42,7 @@
 		1A50F67828468E7300E09D1A /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		1A50F67A2847DE8A00E09D1A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1AD2694B28671B530094D865 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		1AD2694D28685E560094D865 /* CoverItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverItemViewCell.swift; sourceTree = "<group>"; };
 		1AFD07E1284BDDD900A83D09 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1AFD07E3284C9F8C00A83D09 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		1AFD07EF284D1F7900A83D09 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				1A50F6702846873A00E09D1A /* Main.storyboard */,
+				1AD2694D28685E560094D865 /* CoverItemViewCell.swift */,
 				1AD2694B28671B530094D865 /* FavoritesCollectionViewController.swift */,
 				1A50F6722846879600E09D1A /* ScoresTableViewController.swift */,
 				1AFD07E1284BDDD900A83D09 /* Extension.swift */,
@@ -181,6 +184,7 @@
 				1A50F65A28453DFE00E09D1A /* AppDelegate.swift in Sources */,
 				1AD2694C28671B530094D865 /* FavoritesCollectionViewController.swift in Sources */,
 				1A50F65C28453DFE00E09D1A /* SceneDelegate.swift in Sources */,
+				1AD2694E28685E560094D865 /* CoverItemViewCell.swift in Sources */,
 				1A50F67928468E7300E09D1A /* JSONLoader.swift in Sources */,
 				1A50F6732846879600E09D1A /* ScoresTableViewController.swift in Sources */,
 				1A50F67728468D3D00E09D1A /* ModelLogic.swift in Sources */,

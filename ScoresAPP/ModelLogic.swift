@@ -139,4 +139,8 @@ final class ModelLogic {
         
         return favorites.contains(realID)
     }
+    
+    func getFavorite(id:Int) -> ScoreModel {
+        scores[favorites[id]]
+    }
 }

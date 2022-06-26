@@ -88,20 +88,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8MY-To-qtt">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="8MY-To-qtt">
                             <size key="itemSize" width="128" height="128"/>
+                            <size key="estimatedItemSize" width="192" height="192"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0er-UP-DPS">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0er-UP-DPS" customClass="CoverItemViewCell" customModule="ScoresAPP" customModuleProvider="target">
+                                <rect key="frame" x="5" y="0.0" width="192" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="89A-lT-Vfc">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZLm-n8-5YK">
+                                            <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="192" id="L32-tH-B8Q"/>
+                                                <constraint firstAttribute="width" constant="192" id="uu9-Bu-5Ow"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZLm-n8-5YK" firstAttribute="top" secondItem="89A-lT-Vfc" secondAttribute="top" id="7MY-oh-KqV"/>
+                                        <constraint firstItem="ZLm-n8-5YK" firstAttribute="leading" secondItem="89A-lT-Vfc" secondAttribute="leading" id="Q2f-1s-lPc"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZLm-n8-5YK" secondAttribute="trailing" id="aCJ-iC-9yu"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZLm-n8-5YK" secondAttribute="bottom" id="oPT-gz-Fva"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="192" height="192"/>
+                                <connections>
+                                    <outlet property="cover" destination="ZLm-n8-5YK" id="bCf-8Y-e4k"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -113,7 +133,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZi-50-AmB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="832"/>
+            <point key="canvasLocation" x="1857.9710144927537" y="831.69642857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="w1o-Ig-wZI">
