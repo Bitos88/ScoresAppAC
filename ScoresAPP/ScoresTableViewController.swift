@@ -9,7 +9,7 @@ import UIKit
 
 
 //MARK: FORMA CLÁSICA
-final class ScoresTableViewController: UITableViewController {
+final class ScoresTableViewController: UITableViewController, UISearchResultsUpdating {
     
     let modelLogic = ModelLogic.shared
     
@@ -22,6 +22,8 @@ final class ScoresTableViewController: UITableViewController {
         super.viewDidLoad()
         
         configureSortButton()
+        
+        tabBarController?.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
@@ -33,6 +35,16 @@ final class ScoresTableViewController: UITableViewController {
             tableView.scrollToRow(at: IndexPath(row: modelLogic.scores.count - 1, section: 0), at: .bottom, animated: false)
             
         }
+        createSerchBar()
+    }
+    
+    func createSerchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchBar.placeholder = "Search a Score"
+        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
     }
 
     // MARK: - Table view data source
@@ -121,7 +133,7 @@ final class ScoresTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return modelLogic.scores.count
+        return modelLogic.sortScores.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -249,6 +261,22 @@ final class ScoresTableViewController: UITableViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .reloadNewData, object: nil)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        modelLogic.search = searchController.searchBar.text ?? ""
+        tableView.reloadData()
+    }
+}
+
+extension ScoresTableViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let navigation = viewController as? UINavigationController,
+              let collection = navigation.children.first as? FavoritesCollectionViewController else {
+            return
+        }
+        
+        collection.collectionView.reloadData()
     }
 }
 

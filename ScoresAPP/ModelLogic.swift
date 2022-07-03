@@ -48,19 +48,38 @@ final class ModelLogic {
     }
     
     var sortScores: [ScoreModel] {
-        switch sortType {
-        case .descendent:
-            return scores.sorted(by: { $0.title < $1.title })
-        case .ascendent:
-            return scores.sorted(by: { $0.title > $1.title })
-        case .none:
-            return scores.sorted(by: { $0.id > $1.id })
+        if search.isEmpty {
+            switch sortType {
+            case .descendent:
+                return scores.sorted(by: { $0.title < $1.title })
+            case .ascendent:
+                return scores.sorted(by: { $0.title > $1.title })
+            case .none:
+                return scores.sorted(by: { $0.id > $1.id })
+            }
+        } else {
+            let scoresFilter = scores.filter {
+                $0.title.lowercased().hasPrefix(search.lowercased())
+            }
+            
+            switch sortType {
+            case .descendent:
+                return scoresFilter.sorted(by: { $0.title < $1.title })
+            case .ascendent:
+                return scoresFilter.sorted(by: { $0.title > $1.title })
+            case .none:
+                return scoresFilter.sorted(by: { $0.id > $1.id })
+            }
         }
+        
+       
     }
     
     var composers:[String] {
         Array(Set(scores.map(\.composer)))
     }
+    
+    var search = ""
     
     init() {
         self.scores = ModelLogic.loadScores()
